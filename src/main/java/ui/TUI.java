@@ -1,6 +1,6 @@
 package ui;
 
-import game.game;
+import game.Game;
 
 import java.util.Scanner;
 
@@ -8,7 +8,7 @@ public class TUI implements UI {
     private final Scanner scanner = new Scanner(System.in);
 
     @Override
-    public int determineMove(game game) {
+    public int determineMove(Game game) {
         return 0;
     }
 
