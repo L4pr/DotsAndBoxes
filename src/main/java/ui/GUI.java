@@ -12,4 +12,9 @@ public class GUI implements UI {
     public GameType determineGameType() {
         return null;
     }
+
+    @Override
+    public void showBoard(Game game) {
+
+    }
 }

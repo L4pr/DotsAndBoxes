@@ -7,5 +7,7 @@ public interface UI {
 
     GameType determineGameType();
 
+    void showBoard(Game game);
+
 
 }

@@ -39,4 +39,9 @@ public class TUI implements UI {
         }
         return input.equals("local") ? GameType.LOCAL: GameType.ONLINE;
     }
+
+    @Override
+    public void showBoard(Game game) {
+        System.out.println(game.toString());
+    }
 }

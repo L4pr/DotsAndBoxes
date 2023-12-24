@@ -5,7 +5,7 @@ import game.Game;
 abstract class Player {
     private final String name;
 
-    public Player(String name) {
+    Player(String name) {
         this.name = name;
     }
 

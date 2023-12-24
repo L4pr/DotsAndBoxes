@@ -4,6 +4,10 @@ public class Game {
 
     Board board = new Board(0);
 
+    public Board getBoard() {
+        return board;
+    }
+
     public long getValidMoves(Board board) {
         return (~board.getBoard() & 0xFFFFFFFFFFFFFFFL);
     }

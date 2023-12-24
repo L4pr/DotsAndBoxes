@@ -1,13 +1,21 @@
 package player;
 
 import game.Game;
+import ui.UI;
 
 public class HumanPlayer extends Player {
-    public HumanPlayer(String name) {
+    private final UI ui;
+    public HumanPlayer(String name, UI ui) {
         super(name);
+        this.ui = ui;
     }
     @Override
     int determineMove(Game game) {
-        return 0;
+
+        int move = ui.determineMove(game);
+        while (!game.isValidMove(move, game.getBoard())) {
+            move = ui.determineMove(game);
+        }
+        return move;
     }
 }
