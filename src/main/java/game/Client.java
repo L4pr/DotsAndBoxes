@@ -24,14 +24,19 @@ public class Client {
         // local: p1 (bot or human), p2 (bot or human)
         GameType type = c.getUi().determineGameType();
         if (type == GameType.LOCAL) {
-            String[] p1 = c.getUi().playerInfo();
-            String[] p2 = c.getUi().playerInfo();
-            Player player1 = p1[1].equals("y") || p1[1].equals("yes") ? new ComputerPlayer(p1[0]) : new HumanPlayer(p1[0], c.getUi());
-            Player player2 = p2[1].equals("y") || p2[1].equals("yes") ? new ComputerPlayer(p2[0]) : new HumanPlayer(p2[0], c.getUi());
-
+            c.startLocalGame();
         } else {
             // online -> later
         }
+    }
+
+    void startLocalGame() {
+        String[] p1 = ui.playerInfo();
+        String[] p2 = ui.playerInfo();
+        Player player1 = p1[1].equals("y") || p1[1].equals("yes") ? new ComputerPlayer(p1[0]) : new HumanPlayer(p1[0], ui);
+        Player player2 = p2[1].equals("y") || p2[1].equals("yes") ? new ComputerPlayer(p2[0]) : new HumanPlayer(p2[0], ui);
+        Game game = new Game();
+        game.runGame(player1, player2);
     }
 
 
