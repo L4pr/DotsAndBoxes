@@ -45,4 +45,8 @@ public class Game {
         return getWinner();
     }
 
+    @Override
+    public String toString() {
+        return board.toString() + "\n" + board.playerPoints[0] + "    " + board.playerPoints[1];
+    }
 }
