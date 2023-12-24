@@ -57,6 +57,10 @@ public class TUI implements UI {
         if (isAI.equals("y") || isAI.equals("yes")) {
             System.out.println("What kind of AI? simple or smart?");
             String kind = scanner.nextLine();
+            while (!kind.equals("simple") && !kind.equals("smart")) {
+                System.out.println("Please enter 'simple' or 'smart'");
+                kind = scanner.nextLine();
+            }
             return new String[]{userName, isAI, kind};
         }
         return new String[]{userName, isAI};
