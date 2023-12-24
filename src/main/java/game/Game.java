@@ -47,6 +47,6 @@ public class Game {
 
     @Override
     public String toString() {
-        return board.toString() + "\n" + board.playerPoints[0] + "    " + board.playerPoints[1];
+        return board.toString() + "\n" + "player 1: " + board.playerPoints[0] + "\n" + "player 2: " + board.playerPoints[1];
     }
 }
