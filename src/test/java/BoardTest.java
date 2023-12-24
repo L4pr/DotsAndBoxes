@@ -7,8 +7,15 @@ public class BoardTest {
         Board board = new Board(initialState);
 
         // Optionally set some lines
-        board.setLine(3); // Set a horizontal line
-        board.setLine(35); // Set a vertical line
+        board.setLine(0);
+        board.setLine(1);
+        board.setLine(5);
+        board.setLine(6);
+        board.setLine(31);
+        board.setLine(32);
+
+        System.out.println(board.moveMakesBox(30));
+
 
         // Print the board
         System.out.println(board.toString());
