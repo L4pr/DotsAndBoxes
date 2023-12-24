@@ -4,8 +4,7 @@ public class Board {
 
     // first 30 bits horizontal, next 30 bits horizontal
     private long lines = 0;
-    private int player1Points = 0;
-    private int player2Points = 0;
+    public int[] playerPoints = new int[2];
 
     public Board(long board) {
         lines = board;
@@ -47,9 +46,6 @@ public class Board {
     public long getLineOnIndex(int index) {
         return lines & (1L << (59 - index));
     }
-
-
-
 
 
     //following methods are for the toString method
