@@ -11,47 +11,79 @@ public class Board {
         lines = board;
     }
 
+    public int moveMakesBox(int index) {
+        int boxesMade = 0;
+        if (index < 30) {
+
+        }
+        else {
+
+
+        }
+        return boxesMade;
+    }
+
+    private boolean isLineSet(int index) {
+        return (lines & (1L << (59 - index))) != 0;
+    }
 
     public void setLine(int index) {
-        lines = lines & (1L << (59 - index));
+        lines = lines | (1L << (59 - index));
     }
 
     public long getBoard() {
         return lines;
     }
 
+    public long getLineOnIndex(int index) {
+        return lines & (1L << (59 - index));
+    }
+
+    public String getLineDots(int line) {
+        int startIndex = line * 5;
+        int endIndex = (line * 5) + 4;
+        String output = " .";
+        for (int i = startIndex; i <= endIndex; i++) {
+            if (getLineOnIndex(i) != 0) {
+                output += "_.";
+            }
+            else {
+                output += " .";
+            }
+        }
+        return output;
+    }
+
+    public String getLineVerticals(int line) {
+        int startIndex = (line * 6) + 30;
+        int endIndex = (line * 6) + 35;
+        String output = " ";
+        for (int i = startIndex; i <= endIndex; i++) {
+            if (getLineOnIndex(i) != 0) {
+                output += "| ";
+            }
+            else {
+                output += "  ";
+            }
+        }
+        return output;
+    }
 
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
+        String output = "";
+        output += getLineDots(0) + "\n";
+        output += getLineVerticals(0) + "\n";
+        output += getLineDots(1) + "\n";
+        output += getLineVerticals(1) + "\n";
+        output += getLineDots(2) + "\n";
+        output += getLineVerticals(2) + "\n";
+        output += getLineDots(3) + "\n";
+        output += getLineVerticals(3) + "\n";
+        output += getLineDots(4) + "\n";
+        output += getLineVerticals(4) + "\n";
+        output += getLineDots(5) + "\n";
 
-        for (int row = 0; row < 6; row++) {
-            // Print dots and horizontal lines
-            for (int col = 0; col < 5; col++) {
-                builder.append(".");
-                if ((lines & (1L << (59 - (row * 5 + col)))) != 0) {
-                    builder.append("-");
-                } else {
-                    builder.append(" ");
-                }
-            }
-            builder.append(".\n");
-
-            // Print vertical lines if not the last row
-            if (row < 5) {
-                for (int col = 0; col < 6; col++) {
-                    if (col < 5 && (lines & (1L << (29 - (row * 5 + col)))) != 0) {
-                        builder.append("|");
-                    } else {
-                        builder.append(" ");
-                    }
-                    builder.append(" ");
-                }
-                builder.append("\n");
-            }
-        }
-
-        return builder.toString();
+        return output;
     }
-
 }
