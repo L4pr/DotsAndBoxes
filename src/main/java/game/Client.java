@@ -30,13 +30,21 @@ public class Client {
         }
     }
 
-    void startLocalGame() {
-        String[] p1 = ui.playerInfo();
-        String[] p2 = ui.playerInfo();
-        Player player1 = p1[1].equals("y") || p1[1].equals("yes") ? new ComputerPlayer(p1[0]) : new HumanPlayer(p1[0], ui);
-        Player player2 = p2[1].equals("y") || p2[1].equals("yes") ? new ComputerPlayer(p2[0]) : new HumanPlayer(p2[0], ui);
+    private void startLocalGame() {
+        Player player1 = createPlayer(ui.playerInfo());
+        Player player2 = createPlayer(ui.playerInfo());
         Game game = new Game();
         game.runGame(player1, player2);
+    }
+
+    private Player createPlayer(String[] info) {
+        String name = info[0];
+        boolean AI = info[1].equals("y") || info[1].equals("yes");
+        if (AI) {
+            String kind = info[2];
+            return kind.equals("simple") ? new RandomPlayer(name) : new ComputerPlayer(name);
+        }
+        return new HumanPlayer(name, ui);
     }
 
 

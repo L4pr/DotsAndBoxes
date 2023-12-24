@@ -54,6 +54,11 @@ public class TUI implements UI {
             System.out.println("Are you playing as an AI? Please enter 'yes' or 'no'");
             isAI = scanner.nextLine();
         }
+        if (isAI.equals("y") || isAI.equals("yes")) {
+            System.out.println("What kind of AI? simple or smart?");
+            String kind = scanner.nextLine();
+            return new String[]{userName, isAI, kind};
+        }
         return new String[]{userName, isAI};
     }
 }
