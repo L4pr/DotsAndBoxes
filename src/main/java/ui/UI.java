@@ -1,9 +1,9 @@
 package ui;
 
-import game.game;
+import game.Game;
 
 public interface UI {
-    int determineMove(game game);
+    int determineMove(Game game);
 
 
 }
