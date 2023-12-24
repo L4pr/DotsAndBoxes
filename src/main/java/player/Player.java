@@ -9,6 +9,10 @@ abstract class Player {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int makeMove(Game game) {
         return determineMove(game);
     }

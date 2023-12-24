@@ -11,7 +11,7 @@ public class HumanPlayer extends Player {
     }
     @Override
     int determineMove(Game game) {
-
+        ui.showBoard(game);
         int move = ui.determineMove(game);
         while (!game.isValidMove(move, game.getBoard())) {
             move = ui.determineMove(game);
