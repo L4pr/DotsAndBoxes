@@ -3,6 +3,7 @@ package game;
 import player.ComputerPlayer;
 import player.HumanPlayer;
 import player.Player;
+import player.RandomPlayer;
 import ui.GUI;
 import ui.GameType;
 import ui.TUI;
