@@ -20,7 +20,7 @@ public class Game {
     }
 
     public void makeMove(int index) {
-        board.playerPoints[current] = board.moveMakesBox(index);
+        board.playerPoints[current] += board.moveMakesBox(index);
         if (board.moveMakesBox(index) == 0) {
             current = (current == 0) ? 1 : 0;
         }
