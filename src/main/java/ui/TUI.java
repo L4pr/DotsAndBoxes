@@ -2,7 +2,6 @@ package ui;
 
 import game.Game;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TUI implements UI {
@@ -43,5 +42,18 @@ public class TUI implements UI {
     @Override
     public void showBoard(Game game) {
         System.out.println(game.toString());
+    }
+
+    @Override
+    public String[] playerInfo() {
+        System.out.print("Enter your username: ");
+        String userName = scanner.nextLine();
+        System.out.println("Are you playing as an AI? y/n");
+        String isAI = scanner.nextLine();
+        while (!isAI.equals("y") && !isAI.equals("yes") && !isAI.equals("n") && !isAI.equals("no")) {
+            System.out.println("Are you playing as an AI? Please enter 'yes' or 'no'");
+            isAI = scanner.nextLine();
+        }
+        return new String[]{userName, isAI};
     }
 }

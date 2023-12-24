@@ -17,4 +17,9 @@ public class GUI implements UI {
     public void showBoard(Game game) {
 
     }
+
+    @Override
+    public String[] playerInfo() {
+        return new String[0];
+    }
 }

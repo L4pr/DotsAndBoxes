@@ -9,5 +9,7 @@ public interface UI {
 
     void showBoard(Game game);
 
+    String[] playerInfo();  // [username,isBot]
+
 
 }

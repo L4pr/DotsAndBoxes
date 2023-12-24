@@ -2,7 +2,7 @@ package player;
 
 import game.Game;
 
-abstract class Player {
+public abstract class Player {
     private final String name;
 
     Player(String name) {
