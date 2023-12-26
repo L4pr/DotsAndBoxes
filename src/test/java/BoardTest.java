@@ -7,18 +7,32 @@ public class BoardTest {
         Board board = new Board(initialState);
 
         // Optionally set some lines
-        board.setLine(0);
-        board.setLine(1);
-        board.setLine(5);
-        board.setLine(6);
-        board.setLine(31);
-        board.setLine(32);
+        for (int i = 0; i < 60; i++) {
+            if (i != 31) {
+                board.setLine(i);
+            }
+        }
 
-        System.out.println(board.moveMakesBox(30));
+//        board.setLine(0);
+//        board.setLine(1);
+//        board.setLine(5);
+//        board.setLine(6);
+//        board.setLine(31);
+//        board.setLine(32);
+
+
 
 
         // Print the board
         System.out.println(board.toString());
+
+        System.out.println((~board.getBoard() & 0xFFFFFFFFFFFFFFFL) == 0);
+
+        System.out.println(board.moveMakesBox(1));
+
+
+
     }
+
 }
 

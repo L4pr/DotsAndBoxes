@@ -16,12 +16,10 @@ public class RandomPlayer extends Player{
     int determineMove(Game game) {
         System.out.println(game.toString());
         while (true) {
-            long move = game.getValidMoves(game.getBoard()) & (1L << random.nextInt(60));
+            int moveIndex = random.nextInt(60);
 
-            for (int i = 0; i < 60; i++) {
-                if ((move & (1L << (59 - i))) != 0) {
-                    return i;
-                }
+            if (game.isValidMove(moveIndex, game.getBoard())) {
+                return moveIndex;
             }
         }
     }

@@ -20,8 +20,10 @@ public class Game {
     }
 
     public void makeMove(int index) {
-        board.playerPoints[current] += board.moveMakesBox(index);
-        if (board.moveMakesBox(index) == 0) {
+        int pointsMade = board.moveMakesBox(index);
+        board.playerPoints[current] += pointsMade;
+
+        if (pointsMade == 0) {
             current = (current == 0) ? 1 : 0;
         }
 
@@ -37,9 +39,14 @@ public class Game {
     }
 
     public int runGame(Player player0, Player player1) {
-        while (!isGameOver(board)) {
+        while (true) {
             int move = (current == 0) ? player0.makeMove(this) : player1.makeMove(this);
             makeMove(move);
+
+            if (isGameOver(board)) {
+                System.out.println(this.toString());
+                break;
+            }
         }
 
         return getWinner();

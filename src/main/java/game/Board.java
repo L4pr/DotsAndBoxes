@@ -13,18 +13,26 @@ public class Board {
     public int moveMakesBox(int index) {
         int boxesMade = 0;
         if (index < 30) {
-            if (isLineSet(index - 5) && isLineSet(index + 25) && isLineSet(index + 26)) {
+//            System.out.println(index + " " + (index >= 5) + " " + (index - 5) + " " + (index + 24 + ((index) / 5)) + " " + (index + 25 + ((index) / 5)));
+            if (index >= 5 && isLineSet(index - 5) && isLineSet(index + 24 + ((index) / 5)) &&
+                    isLineSet(index + 25 + ((index) / 5))) {
                 boxesMade++;
             }
-            if (isLineSet(index + 5) && isLineSet(index + 35) && isLineSet(index + 36)) {
+//            System.out.println(index + " " + (index <= 24) + " " + (index + 5) + " " + (index + 30 + ((index) / 5)) + " " + (index + 31 + ((index) / 5)));
+            if (index <= 24 && isLineSet(index + 5) && isLineSet(index + 30 + ((index) / 5)) &&
+                    isLineSet(index + 31 + ((index) / 5))) {
                 boxesMade++;
             }
         }
         else {
-            if (isLineSet(index - 1) && isLineSet(index - 31) && isLineSet(index - 26)) {
+//            System.out.println(index + " " + (index % 6 != 0) + " " + (index - 1) + " " + (index - 31 - ((index - 30) / 6)) + " " + (index - 26 - ((index - 30) / 6)));
+            if (index % 6 != 0 && isLineSet(index - 1) && isLineSet(index - 31 - ((index - 30) / 6)) &&
+                    isLineSet(index - 26 - ((index - 30) / 6))) {
                 boxesMade++;
             }
-            if (isLineSet(index + 1) && isLineSet(index - 30) && isLineSet(index - 25)) {
+//            System.out.println(index + " " + ((index - 5) % 6 != 0) + " " + (index + 1) + " " + (index - 30 - ((index - 30) / 6)) + " " + (index - 25 - ((index - 30) / 6)));
+            if ((index - 5) % 6 != 0 && isLineSet(index + 1) && isLineSet(index - 30 - ((index - 30) / 6)) &&
+                    isLineSet(index - 25 - ((index - 30) / 6))) {
                 boxesMade++;
             }
         }
