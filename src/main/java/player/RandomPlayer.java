@@ -14,7 +14,6 @@ public class RandomPlayer extends Player{
 
     @Override
     int determineMove(Game game) {
-        System.out.println(game.toString());
         while (true) {
             int moveIndex = random.nextInt(60);
 
